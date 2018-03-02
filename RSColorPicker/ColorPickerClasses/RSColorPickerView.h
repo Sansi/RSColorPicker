@@ -25,6 +25,8 @@
 IB_DESIGNABLE
 @interface RSColorPickerView : UIView
 
+
+
 /**
  * Specifies if the color picker should be drawn as a circle, or as a square.
  */
@@ -74,9 +76,16 @@ IB_DESIGNABLE
 - (UIColor *)colorAtPoint:(CGPoint)point;
 
 /**
+ * Hide the current color selection circle.
+ * @return YES OR NO;
+ */
+- (void)hideSelectionLayer:(BOOL)hidden;
+
+/**
  * Methods that create/cache data needed to create a color picker.
  * These run async (except where noted) and can help the overall UX.
  */
+
 
 + (void)prepareForDiameter:(CGFloat)diameter;
 + (void)prepareForDiameter:(CGFloat)diameter padding:(CGFloat)padding;

@@ -105,6 +105,17 @@
 
 @implementation RSColorPickerView
 
+- (void)hideSelectionLayer:(BOOL)hidden{
+    if (hidden ==YES) {
+        self.selectionLayer.hidden = YES;
+        self.selectionColorLayer.hidden = YES;
+    }else{
+        self.selectionLayer.hidden = NO;
+        self.selectionColorLayer.hidden = NO;
+    }
+   
+}
+
 #pragma mark - Object Lifecycle -
 
 - (id)initWithFrame:(CGRect)frame {
@@ -406,6 +417,7 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 
     if (self.showLoupe) {
+    
         // Lazily load loupeLayer, if user wants to display it.
 		if (!self.loupeLayer) {
 			self.loupeLayer = [BGRSLoupeLayer layer];
